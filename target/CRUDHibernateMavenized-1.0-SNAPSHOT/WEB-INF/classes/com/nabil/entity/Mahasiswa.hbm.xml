@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 13, 2017 2:41:53 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="crud" name="com.nabil.entity.MahasiswaEntity" optimistic-lock="version" table="mahasiswa">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nama" type="string">
+      <column length="25" name="nama"/>
+    </property>
+    <property name="kelas" type="string">
+      <column length="3" name="kelas"/>
+    </property>
+    <property name="jeniskelamin" type="string">
+      <column length="6" name="jeniskelamin"/>
+    </property>
+  </class>
+</hibernate-mapping>

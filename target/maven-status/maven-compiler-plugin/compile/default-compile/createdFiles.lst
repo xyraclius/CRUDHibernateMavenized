@@ -1,0 +1,4 @@
+com\nabil\controller\MahasiswaController.class
+com\nabil\entity\MahasiswaEntity.class
+com\nabil\util\HibernateUtil.class
+com\nabil\dao\MahasiswaDAO.class

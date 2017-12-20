@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>MahasiswaController</servlet-name>
+        <servlet-class>com.nabil.controller.MahasiswaController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MahasiswaController</servlet-name>
+        <url-pattern>/MahasiswaController</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>insert.jsp</servlet-name>
+        <jsp-file>/insert.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>insert.jsp</servlet-name>
+        <url-pattern>/insert</url-pattern>
+    </servlet-mapping>  
+    
+    <servlet>
+        <servlet-name>edit.jsp</servlet-name>
+        <jsp-file>/edit.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit.jsp</servlet-name>
+        <url-pattern>/edit</url-pattern>
+    </servlet-mapping>  
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
