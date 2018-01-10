@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">     
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">     
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">             
         <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">     
         <link rel="stylesheet" type="text/css" href="css/build.css">      
         <title>Edit Page</title>
@@ -36,20 +36,20 @@
                 <div class="form-group">
                     <label class="radio" for="Jenis Kelamin" style="margin-left: -5%; margin-bottom: 3px">Jenis Kelamin</label>                  
                     <c:choose>
-                        <c:when test="${get.jeniskelamin == 'Pria'}">
-                            <div class="radio radio-danger radio-inline">
-                                <input type="radio" name="jeniskelamin" id="Pria" value="Pria" checked><label for="Pria">Pria</label>
-                            </div>
-                            <div class="radio radio-danger radio-inline">
-                                <input type="radio" name="jeniskelamin" id="Wanita" value="Wanita"><label for="Wanita">Wanita</label>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
+                        <c:when test="${get.jeniskelamin == 'Wanita'}">
                             <div class="radio radio-danger radio-inline">
                                 <input type="radio" name="jeniskelamin" id="Pria" value="Pria"><label for="Pria">Pria</label>
                             </div>
                             <div class="radio radio-danger radio-inline">
                                 <input type="radio" name="jeniskelamin" id="Wanita" value="Wanita" checked><label for="Wanita">Wanita</label>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="radio radio-danger radio-inline">
+                                <input type="radio" name="jeniskelamin" id="Pria" value="Pria" checked><label for="Pria">Pria</label>
+                            </div>
+                            <div class="radio radio-danger radio-inline">
+                                <input type="radio" name="jeniskelamin" id="Wanita" value="Wanita"><label for="Wanita">Wanita</label>
                             </div>
                         </c:otherwise>
                     </c:choose>
@@ -59,7 +59,5 @@
             </form>
         </div>
         <script type="text/javascript" src="js/javascript.js"></script>
-
-
     </body>
 </html>

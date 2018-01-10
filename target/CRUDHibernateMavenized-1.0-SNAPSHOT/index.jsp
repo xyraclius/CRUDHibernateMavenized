@@ -9,9 +9,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">     
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">     
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">     
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">                   
         <link rel="stylesheet" type="text/css" href="css/build.css">     
+        <link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">             
 
         <title>Halaman Tampil Data</title>
     </head>
@@ -32,7 +32,7 @@
                     <th><i class="fa fa-gears"></i> Aksi</th>
                 </tr>
             </thead>
-            
+
             <c:forEach items="<%= MahasiswaDAO.getAllMahasiswa()%>" var="show">
                 <tr>
                     <td>${show.id}</td>
@@ -41,14 +41,14 @@
                     <td>${show.jeniskelamin}</td>   
                     <td>                                                         
                         <a class="btn btn-success fa fa-pencil-square-o" href="MahasiswaController?editID=${show.id}"> Ubah </a>                                        
-                        <a class="btn btn-danger fa fa-trash-o" href="MahasiswaController?deleteID=${show.id}"> Hapus</a>   
+                        <a class="btn btn-danger fa fa-trash-o" id="deleteData" href="MahasiswaController?deleteID=${show.id}"> Hapus</a>   
                     </td>
                 </tr>
             </c:forEach>           
 
             <tr>
                 <td colspan="6">
-            <center>
+            <center id="clearMessage">
                 <font color="green">
                 <c:if test="${sessionScope.sm != null}">
                     <c:out value="${sessionScope.sm}"/>
@@ -66,6 +66,37 @@
             </td>
             </tr>
         </table>
+
     </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>   
+    <script src="js/javascript.js"></script>
+    <script>
+        $('#deleteData').on('click', function () {
+            var getLink = $(this).attr("href");              
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                focusConfirm: false,
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    swal(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                            );
+                    window.location = getLink;
+                }
+            });
+            return false;
+        });
+
+    </script>
 </body>
 </html>

@@ -6,9 +6,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">     
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">     
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker3.min.css">     
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">                             
         <link rel="stylesheet" type="text/css" href="css/build.css">     
+        <link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">             
 
         <title>Insert Page</title>
     </head>
@@ -16,7 +16,7 @@
     <body>
     <center><h2>FORM TAMBAH DATA</h2></center>
     <div class="col-md-4 col-md-offset-4">
-        <form action="MahasiswaController" method="post" name="insert_form">
+        <form action="MahasiswaController?insert-data" method="post" id="insert_form">
             <div class="form-group">       
                 <div class="input-group">
                     <label for="ID">ID</label>
@@ -47,12 +47,39 @@
                 </div>
             </div>
 
-            <button type="submit" name="insert-data" class="btn btn-success col-md-6"><i class="fa fa-plus"> Tambah</i></button>
+            <button type="submit" class="btn btn-success col-md-6" id="saveData"><i class="fa fa-plus"> Tambah</i></button>
             <a href="MahasiswaController?home" class="fa fa-close btn btn-danger col-md-6"> Batal</a>            
         </form>
     </div>
 
-    <script type="text/javascript" src="js/javascript.js"></script>
-    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>   
+    <script src="js/javascript.js"></script>
+    <script>
+                    $('#saveData').on('click', function () {
+                        var form = $('#insert_form');
+                        swal({
+                            title: 'Save Data',
+                            text: "Are you sure want to save this data?!",
+                            type: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            focusConfirm: false,
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes, save it!'
+                        }).then((result) => {
+                            if (result.value) {
+                                swal(
+                                        'Saved!',
+                                        'Your data has been saved.',
+                                        'success'
+                                        );
+                                form.submit();
+                            }
+                        });
+                        return false;
+                    });
+
+    </script>
 </body>   
 </html>

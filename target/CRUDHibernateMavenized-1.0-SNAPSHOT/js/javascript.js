@@ -1,3 +1,5 @@
+/* global swal, form */
+
 function onlyNumeric(event) {
     var key = window.event ? event.keyCode : event.which;
     if (event.keyCode >= 8 || event.keyCode === 46 || event.keyCode === 37 || event.keyCode === 39) {
@@ -30,3 +32,9 @@ function getRandomInt(min, max) {
     var x = Math.floor(Math.random() * (100000 - 10000) + 10000);
     document.getElementById('id').value = x;
 }
+
+
+var fade_out = function () {
+    $("#clearMessage").fadeOut().empty();
+};
+setTimeout(fade_out, 4000);

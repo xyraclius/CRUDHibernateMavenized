@@ -71,12 +71,11 @@ public class MahasiswaDAO {
     public static ArrayList getAllMahasiswa() { //Show All Data
         SessionFactory factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
-        ArrayList<MahasiswaEntity> list = (ArrayList<MahasiswaEntity>) session.createCriteria(MahasiswaEntity.class).list();
-        ArrayList<MahasiswaEntity> pList = list;
+        ArrayList<MahasiswaEntity> list = (ArrayList<MahasiswaEntity>) session.createCriteria(MahasiswaEntity.class).list();        
         session.beginTransaction();
         session.close();
 
-        return pList;
+        return list;
     }
 
     public static MahasiswaEntity findMahasiswa(int id) { //Find Biodata Mahasiswa
